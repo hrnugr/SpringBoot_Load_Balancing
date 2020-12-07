@@ -1,0 +1,22 @@
+# Our product application run at this port
+server :
+   port : 8483
+
+# Our service will be register by own service name
+spring :
+   application :
+      name : customer-service
+
+# To be register we assign eureka service url
+eureka:
+   client:
+      service-url :
+         defaultZone:
+            ${EUREKA_URI:http://localhost:8481/eureka}
+   instance :
+      prefer-ip-address : true
+
+# Logging file path
+logging :
+   file :
+      path : target/${spring.application.name}.log
